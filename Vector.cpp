@@ -28,3 +28,7 @@ int Vector::size() const
 	return this->_size;
 }
 
+int Vector::capacity() const
+{
+	return this->_capacity;
+}
