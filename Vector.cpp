@@ -142,3 +142,13 @@ Vector& Vector::operator=(const Vector& other)
 	}
 	return *this;
 }
+
+int& Vector::operator[](int n) const
+{
+	if (n > this->_size || n < 0)
+	{
+		std::cerr << "error: illegal index" << std::endl;
+		n = 0;
+	}
+	return this->_elements[n];
+}
