@@ -12,3 +12,13 @@ Vector::Vector(int n)
 	this->_elements = new int[this->_resizeFactor];
 }
  
+Vector::~Vector()
+{
+	if (this->_elements)
+		delete[] this->_elements;
+
+	this->_elements = NULL;
+	this->_capacity = 0;
+	this->_size = 0;
+
+}
