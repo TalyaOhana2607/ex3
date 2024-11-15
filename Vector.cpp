@@ -54,3 +54,17 @@ void Vector::push_back(const int& val)
 }
 
 
+int Vector::pop_back()
+{
+	if (this->_size > 0)
+	{
+		this->_size--;
+		return this->_elements[this->_size];
+	}
+	else
+	{
+		std::cerr << "error: pop from empty vector" << std::endl;
+		return -9999;
+	}
+}
+
