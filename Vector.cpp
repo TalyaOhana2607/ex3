@@ -32,3 +32,9 @@ int Vector::capacity() const
 {
 	return this->_capacity;
 }
+
+int Vector::resizeFactor() const
+{
+	return this->_resizeFactor;
+}
+
