@@ -88,3 +88,14 @@ void Vector::reserve(const int n)
 
 	}
 }
+
+void Vector::resize(const int n)
+{
+	if (n <= this->_capacity)
+		this->_size = n;
+	else if (n > this->_capacity)
+	{
+		this->reserve(n);
+		this->_size = n;
+	}
+}
