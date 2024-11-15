@@ -38,3 +38,11 @@ int Vector::resizeFactor() const
 	return this->_resizeFactor;
 }
 
+bool Vector::empty() const
+{
+	if (this->_size == 0)
+		return true;
+	return false;
+}
+
+
