@@ -116,3 +116,15 @@ void Vector::resize(const int n, const int& val)
 		this->_elements[i] = val;
 	}
 }
+
+Vector::Vector(const Vector& other)
+{
+	this->_size = other.size();
+	this->_capacity = other.capacity();
+	this->_resizeFactor = other.resizeFactor();
+	this->_elements = new int[other.capacity()];
+	for (int i = 0; i < this->_size; i++)
+	{
+		this->_elements[i] = other._elements[i];
+	}
+}
