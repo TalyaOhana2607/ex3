@@ -99,3 +99,12 @@ void Vector::resize(const int n)
 		this->_size = n;
 	}
 }
+
+void Vector::assign(const int val)
+{
+	for (int i = 0; i < this->_size; i++)
+	{
+		this->_elements[i] = val;
+	}
+}
+
