@@ -22,3 +22,9 @@ Vector::~Vector()
 	this->_size = 0;
 
 }
+
+int Vector::size() const
+{
+	return this->_size;
+}
+
