@@ -68,3 +68,23 @@ int Vector::pop_back()
 	}
 }
 
+void Vector::reserve(const int n)
+{
+	if (n > this->_capacity)
+	{
+		int* temp = this->_elements;
+		int cp = this->_capacity + this->_resizeFactor;
+		while (n > cp)
+		{
+			cp += this->_resizeFactor;
+		}
+		this->_elements = new int[cp];
+		this->_capacity = cp;
+		for (int i = 0; i < this->_size; i++)
+		{
+			this->_elements[i] = temp[i];
+		}
+		delete[] temp;
+
+	}
+}
