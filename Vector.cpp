@@ -45,4 +45,12 @@ bool Vector::empty() const
 	return false;
 }
 
+void Vector::push_back(const int& val)
+{
+	if (this->_size == this->_capacity)
+		this->reserve(this->_capacity + this->_resizeFactor);
+	this->_elements[this->_size] = val;
+	this->_size++;
+}
+
 
