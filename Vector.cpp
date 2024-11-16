@@ -188,3 +188,18 @@ Vector Vector::operator-(const Vector& other) const
 	v3 -= other;
 	return v3;
 }
+
+std::ostream& operator<<(std::ostream& os, const Vector& v)
+{
+	os << "Vector info:\nCapacity is " << v.capacity() << "\nSize is " << v.size() << "\n{";
+	for (int i = 0; i < v.size(); i++)
+	{
+		os << v[i];
+		if (i < v.size() - 1)
+		{
+			os << ",";
+		}
+	}
+	os << "}\n";
+	return os;
+}
