@@ -182,3 +182,9 @@ Vector Vector::operator+(const Vector& other) const
 	return v3;
 }
 
+Vector Vector::operator-(const Vector& other) const
+{
+	Vector v3 = *this;
+	v3 -= other;
+	return v3;
+}
