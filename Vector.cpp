@@ -2,6 +2,7 @@
 
 Vector::Vector(int n)
 {
+	//checl if illegal value
 	if (n < 2)
 	{
 		n = 2;
@@ -48,8 +49,10 @@ bool Vector::empty() const
 
 void Vector::push_back(const int& val)
 {
+	//check if size equal to capacital (if it's true -> We will allocate a larger array
 	if (this->_size == this->_capacity)
 		this->reserve(this->_capacity + this->_resizeFactor);
+	// add the value at the end of free space
 	this->_elements[this->_size] = val;
 	this->_size++;
 }
@@ -71,16 +74,20 @@ int Vector::pop_back()
 
 void Vector::reserve(const int n)
 {
+	// if not enough capacity in the vector
 	if (n > this->_capacity)
 	{
 		int* temp = this->_elements;
+		//calculatation of next allocation
 		int cp = this->_capacity + this->_resizeFactor;
 		while (n > cp)
 		{
 			cp += this->_resizeFactor;
 		}
+		//create new array
 		this->_elements = new int[cp];
 		this->_capacity = cp;
+		//copy the old values
 		for (int i = 0; i < this->_size; i++)
 		{
 			this->_elements[i] = temp[i];
@@ -135,9 +142,11 @@ Vector::Vector(const Vector& other)
 
 Vector& Vector::operator=(const Vector& other)
 {
+	// copy fields
 	this->_size = other.size();
 	this->_capacity = other.capacity();
 	this->_resizeFactor = other.resizeFactor();
+	// allocating memory 
 	this->_elements = new int[this->_capacity];
 	for (int i = 0; i < this->_size; i++)
 	{
@@ -177,15 +186,15 @@ Vector& Vector::operator-=(const Vector& other)
 
 Vector Vector::operator+(const Vector& other) const
 {
-	Vector v3 = *this;
-	v3 += other;
-	return v3;
+	Vector v3 = *this;  // Copy vector using copy constructor
+	v3 += other; // use substruction assignment operator to substruct other from result
+	return v3; 
 }
 
 Vector Vector::operator-(const Vector& other) const
 {
-	Vector v3 = *this;
-	v3 -= other;
+	Vector v3 = *this; // Copy vector using copy constructor
+	v3 -= other; // use substruction assignment operator to substruct other from result
 	return v3;
 }
 
@@ -194,8 +203,8 @@ std::ostream& operator<<(std::ostream& os, const Vector& v)
 	os << "Vector info:\nCapacity is " << v.capacity() << "\nSize is " << v.size() << "\n{";
 	for (int i = 0; i < v.size(); i++)
 	{
-		os << v[i];
-		if (i < v.size() - 1)
+		os << v[i]; // uses element access operator
+		if (i < v.size() - 1) // not last element
 		{
 			os << ",";
 		}
