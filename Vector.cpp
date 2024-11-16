@@ -111,8 +111,11 @@ void Vector::assign(const int val)
 
 void Vector::resize(const int n, const int& val)
 {
+	int i = 0;
+	int startPoint = this->_size;
+
 	this->resize(n);
-	for (int i = this->_size; i < this->_size; i++)
+	for (i = startPoint; i < this->_size; i++)
 	{
 		this->_elements[i] = val;
 	}
@@ -145,7 +148,7 @@ Vector& Vector::operator=(const Vector& other)
 
 int& Vector::operator[](int n) const
 {
-	if (n > this->_size || n < 0)
+	if (n >= this->_size || n < 0)
 	{
 		std::cerr << "error: illegal index" << std::endl;
 		n = 0;
