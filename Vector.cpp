@@ -155,3 +155,13 @@ int& Vector::operator[](int n) const
 	}
 	return this->_elements[n];
 }
+
+Vector& Vector::operator+=(const Vector& other)
+{
+	for (int i = 0; i < this->_size; i++)
+	{
+		this->_elements[i] += other._elements[i];
+
+	}
+	return *this;
+}
